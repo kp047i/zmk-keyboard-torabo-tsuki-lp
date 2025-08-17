@@ -19,11 +19,11 @@
 
         layer_0 {
             bindings = <
-&none  &none             &none    &none     &none     &none                                                     &none            &none  &none      &none      &none                                 &none
-&none  &kp Q             &kp W    &kp E     &kp R     &kp T                                                     &kp Y            &kp U  &kp I      &kp O      &kp P                                 &none
-&none  &mt LCTRL A       &kp S    &kp D     &lt 4 F   &kp G                 &none             &none             &kp H            &kp J  &kp K      &kp L      &kp MINUS                             &none
-&none  &mt LEFT_SHIFT Z  &kp X    &kp C     &kp V     &kp B                 &msc SCRL_UP      &kp BACKSPACE     &kp N            &kp M  &mkp LCLK  &mkp RCLK  &mt RS(RA(RC(RG(RIGHT_SHIFT)))) FSLH  &none
-&none  &kp LANGUAGE_2    &kp TAB  &kp LALT  &kp BSPC  &mt LEFT_SHIFT SPACE  &lt 2 LANGUAGE_1  &lt 3 LANGUAGE_2  &mt RCTRL ENTER  &none  &none      &kp EXSEL  &kp LANGUAGE_1                        &none
+&none  &none             &none    &none     &none         &none                                                     &none            &none  &none      &none      &none                                 &none
+&none  &kp Q             &kp W    &kp E     &kp R         &kp T                                                     &kp Y            &kp U  &kp I      &kp O      &kp P                                 &none
+&none  &mt LCTRL A       &kp S    &kp D     &lt 4 F       &kp G                 &none             &none             &kp H            &kp J  &kp K      &kp L      &kp MINUS                             &none
+&none  &mt LEFT_SHIFT Z  &kp X    &kp C     &kp V         &kp B                 &msc SCRL_UP      &kp BACKSPACE     &kp N            &kp M  &mkp LCLK  &mkp RCLK  &mt RS(RA(RC(RG(RIGHT_SHIFT)))) FSLH  &none
+&none  &kp LANGUAGE_2    &kp TAB  &kp LALT  &kp LEFT_GUI  &mt LEFT_SHIFT SPACE  &lt 2 LANGUAGE_1  &lt 3 LANGUAGE_2  &mt RCTRL ENTER  &none  &none      &kp EXSEL  &kp LANGUAGE_1                        &none
             >;
         };
 
@@ -39,11 +39,11 @@
 
         layer_2 {
             bindings = <
-&trans  &trans  &trans        &trans        &trans        &trans                  &trans  &trans  &trans   &trans   &trans   &trans
-&trans  &none   &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &none                   &none   &kp F1  &kp F2   &kp F3   &kp F4   &trans
-&trans  &none   &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &none   &trans  &trans  &none   &kp F5  &kp F6   &kp F7   &kp F8   &trans
-&trans  &none   &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &none   &trans  &trans  &none   &kp F9  &kp F10  &kp F11  &kp F12  &trans
-&trans  &trans  &trans        &kp NUMBER_0  &trans        &trans  &trans  &trans  &none   &none   &trans   &trans   &trans   &trans
+&trans  &trans  &trans        &trans        &trans        &trans                  &trans         &trans  &trans   &trans   &trans   &trans
+&trans  &none   &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &none                   &none          &kp F1  &kp F2   &kp F3   &kp F4   &trans
+&trans  &none   &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &none   &trans  &trans  &none          &kp F5  &kp F6   &kp F7   &kp F8   &trans
+&trans  &none   &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &none   &trans  &trans  &none          &kp F9  &kp F10  &kp F11  &kp F12  &trans
+&trans  &trans  &trans        &kp NUMBER_0  &trans        &trans  &trans  &trans  &kp BACKSPACE  &none   &trans   &trans   &trans   &trans
             >;
         };
 

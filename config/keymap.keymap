@@ -6,24 +6,7 @@
 #include <dt-bindings/zmk/pointing.h>
 
 / {
-    // トラックボールの動きをスクロールに変換するprocessor
-    scroll_processor: scroll_processor {
-        compatible = "zmk,input-processor-code-mapper";
-        #input-processor-cells = <0>;
-        type = <INPUT_EV_REL>;
-        map = <
-            INPUT_REL_X INPUT_REL_HWHEEL
-            INPUT_REL_Y INPUT_REL_WHEEL
-        >;
-    };
 
-    // スクロール量を調整するスケーラー（1/10に縮小）
-    scroll_scaler: scroll_scaler {
-        compatible = "zmk,input-processor-scaler";
-        #input-processor-cells = <2>;
-        type = <INPUT_EV_REL>;
-        codes = <INPUT_REL_WHEEL INPUT_REL_HWHEEL>;
-    };
 
     combos {
         compatible = "zmk,combos";
@@ -105,6 +88,6 @@
 &trackball_listener {
     set_scroll_mode {
         layers = <5>;
-        input-processors = <&scroll_processor &scroll_scaler 1 10>;
+        input-processors = <&zip_xy_to_scroll_mapper &zip_scroll_scaler 1 10>;
     };
 };

@@ -7,7 +7,6 @@
 
 / {
     // トラックボールの動きをスクロールに変換する input processor
-
     scroll_processor: scroll_processor {
         compatible = "zmk,input-processor-code-mapper";
         #input-processor-cells = <0>;
@@ -16,6 +15,14 @@
             INPUT_REL_X INPUT_REL_HWHEEL
             INPUT_REL_Y INPUT_REL_WHEEL
         >;
+    };
+
+    // スクロール量を調整するスケーラー（1/8に縮小）
+    scroll_scaler: scroll_scaler {
+        compatible = "zmk,input-processor-scaler";
+        #input-processor-cells = <2>;
+        type = <INPUT_EV_REL>;
+        codes = <INPUT_REL_WHEEL INPUT_REL_HWHEEL>;
     };
 
     combos {
@@ -83,7 +90,6 @@
 
         layer_5 {
             // スクロールレイヤー - トラックボールの動きがスクロールとして解釈される
-
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
@@ -96,10 +102,9 @@
 };
 
 // トラックボールのスクロールモード設定
-
 &trackball_listener {
     set_scroll_mode {
         layers = <5>;
-        input-processors = <&scroll_processor>;
+        input-processors = <&scroll_processor &scroll_scaler 1 8>;
     };
 };

@@ -86,6 +86,13 @@
 
 // トラックボールのスクロールモード設定
 &trackball_listener {
+    set_pointer_mode {
+        // 通常のカーソル移動モード
+        input-processors = <
+            &zip_xy_scaler 2 2
+        >;
+    };
+
     set_scroll_mode {
         layers = <5>;
         input-processors = <

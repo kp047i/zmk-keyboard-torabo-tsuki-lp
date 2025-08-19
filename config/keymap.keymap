@@ -86,6 +86,15 @@
 
 // トラックボールのスクロールモード設定
 &trackball_listener {
+    // 通常のマウスカーソル感度設定（デフォルトレイヤー用）
+    set_cursor_sensitivity {
+        layers = <0 1 2 3 4>;
+        input-processors = <
+            &zip_xy_scaler 3 3  // X軸とY軸の感度を2倍に設定（値を調整可能）
+        >;
+    };
+    
+    // スクロールモード設定
     set_scroll_mode {
         layers = <5>;
         input-processors = <

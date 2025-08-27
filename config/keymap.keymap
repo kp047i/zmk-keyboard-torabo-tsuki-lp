@@ -6,8 +6,6 @@
 #include <dt-bindings/zmk/pointing.h>
 
 / {
-
-
     combos {
         compatible = "zmk,combos";
 
@@ -18,16 +16,28 @@
         };
     };
 
+    behaviors {
+        cmt: cmt {
+            compatible = "zmk,behavior-hold-tap";
+            label = "CMT";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         layer_0 {
             bindings = <
-&none  &none             &none             &none     &none             &none                                                     &none            &none  &none      &none       &none                                 &none
-&none  &kp Q             &kp W             &kp E     &kp R             &kp T                                                     &kp Y            &kp U  &kp I      &kp O       &kp P                                 &none
-&none  &mt LCTRL A       &kp S             &kp D     &lt 4 F           &kp G                 &none             &none             &kp H            &kp J  &kp K      &kp L       &kp MINUS                             &none
-&none  &mt LEFT_SHIFT Z  &kp X             &kp C     &kp V             &kp B                 &tog 5            &kp BACKSPACE     &kp N            &kp M  &mkp LCLK  &mkp RCLK   &mt RA(RS(RC(RG(RIGHT_SHIFT)))) FSLH  &none
-&none  &kp LANGUAGE_2    &mt LEFT_GUI TAB  &kp LALT  &mt LEFT_GUI TAB  &mt LEFT_SHIFT SPACE  &lt 2 LANGUAGE_1  &lt 3 LANGUAGE_2  &mt RCTRL ENTER  &none  &none      &kp ESCAPE  &kp LANGUAGE_1                        &none
+&none  &none              &none             &none     &none             &none                                                     &none            &none  &none      &none       &none                                 &none
+&none  &kp Q              &kp W             &kp E     &kp R             &kp T                                                     &kp Y            &kp U  &kp I      &kp O       &kp P                                 &none
+&none  &cmt LCTRL A       &kp S             &kp D     &lt 4 F           &kp G                 &none             &none             &kp H            &kp J  &kp K      &kp L       &kp MINUS                             &none
+&none  &cmt LEFT_SHIFT Z  &kp X             &kp C     &kp V             &kp B                 &tog 5            &kp BACKSPACE     &kp N            &kp M  &mkp LCLK  &mkp RCLK   &mt RA(RS(RC(RG(RIGHT_SHIFT)))) FSLH  &none
+&none  &kp LANGUAGE_2     &mt LEFT_GUI TAB  &kp LALT  &mt LEFT_GUI TAB  &mt LEFT_SHIFT SPACE  &lt 2 LANGUAGE_2  &lt 3 LANGUAGE_1  &mt RCTRL ENTER  &none  &none      &kp ESCAPE  &kp LANGUAGE_1                        &none
             >;
         };
 
@@ -73,6 +83,7 @@
 
         layer_5 {
             // スクロールレイヤー - トラックボールの動きがスクロールとして解釈される
+
             bindings = <
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans  &trans
@@ -85,16 +96,19 @@
 };
 
 // トラックボールのスクロールモード設定
+
 &trackball_listener {
     // 通常のマウスカーソル感度設定（デフォルトレイヤー用）
+
     set_cursor_sensitivity {
         layers = <0 1 2 3 4>;
         input-processors = <
             &zip_xy_scaler 3 3  // X軸とY軸の感度を2倍に設定（値を調整可能）
         >;
     };
-    
+
     // スクロールモード設定
+
     set_scroll_mode {
         layers = <5>;
         input-processors = <

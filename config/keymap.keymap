@@ -98,21 +98,6 @@
 // トラックボールのスクロールモード設定
 
 &trackball_listener {
-    // 通常のマウスカーソル感度設定（デフォルトレイヤー用）
-
-    set_cursor_sensitivity {
-        layers = <0 1 2 3 4>;
-        input-processors = <
-            // 必要に応じて以下のいずれかを選択してください：
-            // &zip_xy_transform (INPUT_TRANSFORM_X_INVERT)  // X軸のみ反転（左右逆）
-            // &zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)  // Y軸のみ反転（上下逆）
-            &zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)  // 両軸反転
-            &zip_xy_scaler 3 3  // X軸とY軸の感度を3倍に設定
-        >;
-    };
-
-    // スクロールモード設定
-
     set_scroll_mode {
         layers = <5>;
         input-processors = <

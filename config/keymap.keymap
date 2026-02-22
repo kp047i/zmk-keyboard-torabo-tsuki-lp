@@ -97,6 +97,11 @@
 
 // トラックボールのスクロールモード設定
 
+&zip_temp_layer {
+    // layer_1 mouse keys + dedicated click keys
+    excluded-positions = <27 28 33 34 48 49>;
+};
+
 &trackball_listener {
     set_scroll_mode {
         layers = <5>;
